@@ -24,7 +24,8 @@ console.log(newfile)
 
 Can be found in the examples folder:
 
-`deno run --allow-read --allow-write examples/csv-example.ts`
+* `deno run --allow-read --allow-write examples/csv-example.ts`
+* `deno run --allow-read --allow-write examples/arquero-example.ts`
 
 ## Testing
 

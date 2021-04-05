@@ -1,7 +1,6 @@
 import * as aq from "https://cdn.skypack.dev/arquero";
 
-let t = await aq.fromCSV(await Deno.readTextFile("flights.csv"));
-
+let t = await aq.fromCSV(await Deno.readTextFile("./examples/flights.csv"));
 
 t = t
   .derive({
@@ -23,4 +22,4 @@ t = t
   // Sort rows by duration, descreasing
   .orderby(aq.desc("duration"));
 
-await Deno.writeTextFile("flights_cleaned.csv", t.toCSV());
+await Deno.writeTextFile("./examples/flights2.csv", t.toCSV());
