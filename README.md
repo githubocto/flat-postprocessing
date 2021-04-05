@@ -20,6 +20,20 @@ await writeJSON(newfile, data.path.to.something)
 console.log(newfile)
 ```
 
+## Examples
+
+Run all the tests:
+
+`deno test --allow-read --allow-write tests/*`
+
+Run separate tests
+
+`deno test --allow-read --allow-write tests/csv-test.ts`
+
+## Testing
+
+
+
 ## License
 
 MIT! See LICENSE
