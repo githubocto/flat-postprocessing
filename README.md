@@ -22,6 +22,12 @@ console.log(newfile)
 
 ## Examples
 
+Can be found in the examples folder:
+
+`deno run --allow-read --allow-write examples/csv-example.ts`
+
+## Testing
+
 Run all the tests:
 
 `deno test --allow-read --allow-write tests/*`
@@ -29,9 +35,6 @@ Run all the tests:
 Run separate tests
 
 `deno test --allow-read --allow-write tests/csv-test.ts`
-
-## Testing
-
 
 
 ## License
