@@ -20,6 +20,23 @@ await writeJSON(newfile, data.path.to.something)
 console.log(newfile)
 ```
 
+## Examples
+
+Can be found in the examples folder:
+
+`deno run --allow-read --allow-write examples/csv-example.ts`
+
+## Testing
+
+Run all the tests:
+
+`deno test --allow-read --allow-write tests/*`
+
+Run separate tests
+
+`deno test --allow-read --allow-write tests/csv-test.ts`
+
+
 ## License
 
 MIT! See LICENSE
