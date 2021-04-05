@@ -1,5 +1,5 @@
 import { Column, DataItem, stringify } from "https://deno.land/std@0.92.0/encoding/csv.ts";
-import { loadCSV, writeCSV } from '../csv.ts'
+import { readCSV, writeCSV } from '../csv.ts'
   
 // Path to a csv file
 const csvPath = './examples/read-example.csv';
@@ -14,7 +14,7 @@ Parse a csv file and return a string[][]
   [ "Three", "-3", "$3000" ]
 ]
 */
-const originalCSV = await loadCSV(csvPath)
+const originalCSV = await readCSV(csvPath)
 console.log(originalCSV)
 
 /*
@@ -26,7 +26,7 @@ Parse a CSV file and skip the first row. Return an object[]
   { Name: "Three", Amount: "-3", Price: "$3000" }
 ]
 */
-const skipFirstRowCSV = await loadCSV(csvPath, { 
+const skipFirstRowCSV = await readCSV(csvPath, { 
     skipFirstRow: true
     // separator: ',' // can use an optional separator. default is comma
     // trimLeadingSpace: false, // whether to trim the leading space. default is false
@@ -43,7 +43,7 @@ Parse a CSV file, skip the first row, and rename the column headers. Return an o
   { id: "Three", quantity: "-3", cost: "$3000" }
 ]
 */
-const renameColumnsCSV = await loadCSV(csvPath, {
+const renameColumnsCSV = await readCSV(csvPath, {
     skipFirstRow: true,
     columns: ['id', 'quantity', 'cost'],
 });
@@ -58,7 +58,7 @@ Parse a CSV file, skip the first row, and apply a custom function to the second 
   { id: "Three", quantity: "-0.3", cost: "$3000" }
 ]
 */
-const parseColumnCSV = await loadCSV(csvPath, {
+const parseColumnCSV = await readCSV(csvPath, {
     skipFirstRow: true,
     columns: [
         { 
