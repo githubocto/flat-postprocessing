@@ -1,4 +1,4 @@
-export async function loadJSON(path: string, encoding = 'utf-8'): Promise<unknown> {
+export async function readJSON(path: string, encoding = 'utf-8'): Promise<unknown> {
   const raw = await Deno.readFile(path)
   const decoder = new TextDecoder(encoding)
   return JSON.parse(decoder.decode(raw))
