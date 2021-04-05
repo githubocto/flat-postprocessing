@@ -1,6 +1,6 @@
 # flat-postprocessing
 
-A collection of postprocessing utilities for [flat](https://github.com/githubocto/flat).
+A collection of postprocessing examples for [flat](https://github.com/githubocto/flat). You can import and use them directly, or treat them as a starting point for writing your own postprocessing scripts.
 
 ## Usage
 
