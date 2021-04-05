@@ -1,10 +1,9 @@
+import {readFile, writeFile} from './file.ts'
+
 export async function readJSON(path: string, encoding = 'utf-8'): Promise<unknown> {
-  const raw = await Deno.readFile(path)
-  const decoder = new TextDecoder(encoding)
-  return JSON.parse(decoder.decode(raw))
+  return JSON.parse(await readFile(path))
 }
 
 export async function writeJSON(path: string, data: any) {
-  const encoder = new TextEncoder()
-  await Deno.writeFile(path, encoder.encode(JSON.stringify(data)))
+  await writeFile(path, JSON.stringify(data))
 }
