@@ -1,5 +1,5 @@
 import { Column, DataItem, stringify } from 'https://deno.land/std@0.92.0/encoding/csv.ts';
-import { readCSV, writeCSV } from 'https://deno.land/x/flat@0.0.3/mod.ts'
+import { readCSV, writeCSV } from 'https://deno.land/x/flat@0.0.4/mod.ts'
   
 // Path to a csv file
 const csvPath = './examples/csv/prices.csv';

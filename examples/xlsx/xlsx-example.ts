@@ -1,5 +1,4 @@
-import { xlsx, readXLSX } from '../../xlsx.ts'
-import { writeCSV } from '../../csv.ts'
+import { xlsx, readXLSX, writeCSV } from 'https://deno.land/x/flat@0.0.4/mod.ts'
 
 const inputFilename = './examples/xlsx/prices.xlsx'
 const outputFilename = './examples/xlsx/prices.csv'

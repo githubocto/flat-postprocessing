@@ -1,4 +1,4 @@
-import { loadImage, loadImageBytes } from 'https://deno.land/x/flat@0.0.3/mod.ts'
+import { loadImage, loadImageBytes } from 'https://deno.land/x/flat@0.0.4/mod.ts'
 import { Image } from 'https://cdn.deno.land/imagescript/versions/1.2.0/raw/mod.ts'; // library for image manipulations
 
 const url = 'https://api.creativecommons.engineering/v1/thumbs/c8fe5f5b-cc1a-4794-91c5-7488c60f4914'
