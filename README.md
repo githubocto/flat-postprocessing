@@ -27,6 +27,7 @@ Can be found in the examples folder:
 * `deno run --allow-read --allow-write examples/csv/csv-example.ts`
 * `deno run --allow-read --allow-write examples/csv/arquero-example.ts`
 * `deno run -A examples/image/image-example.ts`
+* `deno run -A examples/xlsx/xlsx-example.ts`
 
 ## Testing
 
