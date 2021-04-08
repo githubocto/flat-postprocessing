@@ -22,4 +22,4 @@ t = t
   // Sort rows by duration, descreasing
   .orderby(aq.desc("duration"));
 
-await Deno.writeTextFile("./examples/flights2.csv", t.toCSV());
+await Deno.writeTextFile("./examples/csv/flights2.csv", t.toCSV());
