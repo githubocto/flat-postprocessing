@@ -1,6 +1,6 @@
 import * as aq from "https://cdn.skypack.dev/arquero";
 
-let t = await aq.fromCSV(await Deno.readTextFile("./examples/flights.csv"));
+let t = await aq.fromCSV(await Deno.readTextFile("./examples/csv/flights.csv"));
 
 t = t
   .derive({
