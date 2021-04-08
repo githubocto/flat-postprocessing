@@ -1,4 +1,4 @@
-import { loadImage, loadImageBytes } from '../../image.ts'
+import { loadImage, loadImageBytes } from 'https://deno.land/x/flat@0.0.3/mod.ts'
 import { Image } from 'https://cdn.deno.land/imagescript/versions/1.2.0/raw/mod.ts'; // library for image manipulations
 
 const url = 'https://api.creativecommons.engineering/v1/thumbs/c8fe5f5b-cc1a-4794-91c5-7488c60f4914'
@@ -7,13 +7,13 @@ const url3 = 'https://i.giphy.com/media/5wWf7HapUvpOumiXZRK/giphy.gif'
 
 // Can specify a filename to rename the image
 // (image url, path to save image, image to save name)
-loadImage(url, './examples/image/', 'cat')
+await loadImage(url, './examples/image/', 'cat')
 
 // Image will be saved with the default name if not included
-loadImage(url2, './examples/image/')
+await loadImage(url2, './examples/image/')
 
 // Can load gifs, pngs, jpgs
-loadImage(url3, './examples/image/', 'cat-gif')
+await loadImage(url3, './examples/image/', 'cat-gif')
 
 // Image manipulation example - reading from a file
 const bytes = await Deno.readFile('./examples/image/cat.jpeg') // local file
