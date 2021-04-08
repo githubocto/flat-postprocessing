@@ -24,18 +24,19 @@ console.log(newfile)
 
 Can be found in the examples folder:
 
-* `deno run --allow-read --allow-write examples/csv-example.ts`
-* `deno run --allow-read --allow-write examples/arquero-example.ts`
+* `deno run --allow-read --allow-write examples/csv/csv-example.ts`
+* `deno run --allow-read --allow-write examples/csv/arquero-example.ts`
+* `deno run -A examples/image/image-example.ts`
 
 ## Testing
 
 Run all the tests:
 
-`deno test --allow-read --allow-write tests/*`
+`deno test -A tests/*`
 
 Run separate tests
 
-`deno test --allow-read --allow-write tests/csv-test.ts`
+`deno test -A tests/csv-test.ts`
 
 
 ## License

@@ -1,8 +1,8 @@
 import { assertArrayIncludes } from "https://deno.land/std@0.92.0/testing/asserts.ts"
 import { readCSV, writeCSV } from '../csv.ts'
 
-const csvReadPath = './examples/read-example.csv'
-const csvWritePath = './examples/write-example.csv'
+const csvReadPath = './examples/csv/prices.csv'
+const csvWritePath = './examples/csv/names.csv'
 
 Deno.test("reads a csv file", async () => {
     const csv = await readCSV(csvReadPath) as ArrayLike<unknown>

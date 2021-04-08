@@ -1,8 +1,8 @@
-import { Column, DataItem, stringify } from "https://deno.land/std@0.92.0/encoding/csv.ts";
-import { readCSV, writeCSV } from '../csv.ts'
+import { Column, DataItem, stringify } from 'https://deno.land/std@0.92.0/encoding/csv.ts';
+import { readCSV, writeCSV } from 'https://deno.land/x/flat@0.0.2/mod.ts'
   
 // Path to a csv file
-const csvPath = './examples/read-example.csv';
+const csvPath = './examples/csv/prices.csv';
 
 /* 
 Parse a csv file and return a string[][]
@@ -98,7 +98,7 @@ const columns: Column[] = ["name", "age"];
 
 // we have to stringify the data with a row header
 const dataString = await stringify(data, columns)
-writeCSV('./examples/write-example.csv', dataString)
+writeCSV('./examples/csv/names.csv', dataString)
 
 /*
 Write one of the previously parsed csv examples
@@ -111,4 +111,4 @@ Three,-0.3,$3000
 const data2 = parseColumnCSV as DataItem[]; // have to recast the output
 const columns2: Column[] = ["id", "quantity", "cost"];
 const dataString2 = await stringify(data2, columns2)
-writeCSV('./examples/write-example2.csv', dataString2)
+writeCSV('./examples/csv/prices-write.csv', dataString2)
