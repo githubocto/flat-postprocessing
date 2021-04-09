@@ -1,29 +1,24 @@
-import { loadImage, loadImageBytes } from 'https://deno.land/x/flat@0.0.4/mod.ts'
+import { readImageFromFile, readImageFromURL, writeImage } from '../../image.ts'
 import { Image } from 'https://cdn.deno.land/imagescript/versions/1.2.0/raw/mod.ts'; // library for image manipulations
 
-const url = 'https://api.creativecommons.engineering/v1/thumbs/c8fe5f5b-cc1a-4794-91c5-7488c60f4914'
+const url1 = 'https://api.creativecommons.engineering/v1/thumbs/c8fe5f5b-cc1a-4794-91c5-7488c60f4914'
 const url2 = 'https://live.staticflickr.com/962/41906373431_72c25d0dfd_b.jpg'
 const url3 = 'https://i.giphy.com/media/5wWf7HapUvpOumiXZRK/giphy.gif'
 
-// Can specify a filename to rename the image
-// (image url, path to save image, image to save name)
-await loadImage(url, './examples/image/', 'cat')
+// Read different images from a url
+const image1 = await readImageFromURL(url1)
+// (bytes, path, name)
+await writeImage(image1.bytes, './examples/image/', 'cat.jpeg') // custom name
 
-// Image will be saved with the default name if not included
-await loadImage(url2, './examples/image/')
+const image2 = await readImageFromURL(url2)
+await writeImage(image2.bytes, './examples/image/', image2.name) // default image name
 
-// Can load gifs, pngs, jpgs
-await loadImage(url3, './examples/image/', 'cat-gif')
+const image3 = await readImageFromURL(url3)
+await writeImage(image3.bytes, './examples/image/', image3.name)
 
 // Image manipulation example - reading from a file
-const bytes = await Deno.readFile('./examples/image/cat.jpeg') // local file
+const bytes = await readImageFromFile('./examples/image/cat.jpeg') // local file
 const image = await Image.decode(bytes);
 image.crop(image.width/4, image.height/4, image.width/2, image.height/2); // x, y, width, height
-await Deno.writeFile('./examples/image/cat-cropped.jpeg', await image.encode());
-
-// Image manipulation example - fetching from a url
-const { imageBytes, mimeType } = await loadImageBytes(url) // url
-const image2 = await Image.decode(imageBytes);
-image2.resize(image2.width/2, image2.height/2)
-image2.opacity(0.5).invert()
-await Deno.writeFile('./examples/image/cat-resized.jpeg', await image2.encode());
+const newImageBytes = await image.encode()
+await writeImage(newImageBytes, './examples/image/', 'cat-cropped.jpeg')

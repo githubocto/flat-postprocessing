@@ -2,26 +2,29 @@ import { mime } from "https://cdn.deno.land/mimetypes/versions/v1.0.0/raw/mod.ts
 import { urlParse } from 'https://cdn.deno.land/url_parse/versions/1.0.0/raw/mod.ts';
 import { basename } from "https://deno.land/std@0.92.0/path/mod.ts";
 
-export async function loadImageBytes(url: string) {
+export async function readImageFromURL(url: string) {
     const response = await fetch(url); // fetch an image
     const mimeType = response.headers.get('content-type');
     const imageBytes = new Uint8Array(await response.arrayBuffer());
-    return { imageBytes, mimeType }
+
+    const extension = mime.getExtension(mimeType as string);
+    const defaultName = basename(urlParse(url).pathname)
+    let defaultImageName = defaultName
+
+    // if image name does NOT include an extension
+    if (mime.getType(defaultName) === undefined) {
+        defaultImageName = `${defaultName.split('.')[0]}.${extension}`
+    }
+    
+    return { bytes: imageBytes, name: defaultImageName }
 }
 
-export async function loadImage(url: string, path: string, name?: string) {
-    const { imageBytes, mimeType } = await loadImageBytes(url)
-    const extension = mime.getExtension(mimeType as string);
-    let imagePath
+export async function readImageFromFile(path: string) {
+    const bytes = await Deno.readFile(path) // local file
+    return bytes
+}
 
-    if (name) {
-        imagePath = `${path}${name}.${extension}`
-
-    } else {
-        let defaultName = basename(urlParse(url).pathname)
-        defaultName = defaultName.split('.')[0]
-        imagePath = `${path}${defaultName}.${extension}`
-    }
-
-    await Deno.writeFile(imagePath, imageBytes); // create a jpg file with Deno
+export async function writeImage(imageBytes: Uint8Array, path: string, name?: string) {
+    const imagePath = `${path}${name}`
+    await Deno.writeFile(imagePath, imageBytes);
 }
