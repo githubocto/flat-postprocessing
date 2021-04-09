@@ -9,7 +9,7 @@ Your postprocessing scripts must read from the path passed as the first invocati
 The functions exported here are helpers to cut down on boilerplate.
 
 ```ts
-import {readJSON, writeJSON} from 'https://deno.land/x/flat@0.0.2/mod.ts'
+import {readJSON, writeJSON} from 'https://deno.land/x/flat/mod.ts'
 
 const filename = Deno.args[0]
 const data = await readJSON(filename)
@@ -28,6 +28,7 @@ Can be found in the examples folder:
 * `deno run --allow-read --allow-write examples/csv/arquero-example.ts`
 * `deno run -A examples/image/image-example.ts`
 * `deno run -A examples/xlsx/xlsx-example.ts`
+* `deno run -A --unstable examples/zip/zip-example.ts`
 
 ## Testing
 
