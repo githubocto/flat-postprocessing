@@ -1,5 +1,6 @@
 export async function readJSON(path: string) {
-  return JSON.parse(await Deno.readTextFile(path))
+  const text = await Deno.readTextFile(path)
+  return JSON.parse(text)
 }
 
 export async function writeJSON(path: string, data: any) {
