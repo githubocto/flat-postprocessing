@@ -15,7 +15,12 @@ export async function readCSV(path: string, options?: ParseOptions): Promise<Rec
     return content as Record<string, unknown>[]
 }
 
-export async function writeCSV(path: string, data: Record<string, unknown>[]) {
+export async function writeCSV(path: string, data: Record<string, unknown>[] | string) {
+    if (typeof data === 'string') {
+        await Deno.writeTextFile(path, data);
+        return
+    }
+
     const headers = Object.keys(data[0])
     // we have to stringify the data with a row header
     const dataString = await stringify(data as DataItem[], headers)
