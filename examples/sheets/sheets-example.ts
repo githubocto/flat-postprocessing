@@ -5,7 +5,7 @@ import { Parser } from 'https://deno.land/x/xmlparser@v0.2.0/mod.ts'
 // File > Publish to the web > publish entire document as a web page
 const sheetId = '1coaXmKes8b3GUFDGbmb-Hj4bek1HOEI-WCmOF4tIHwI'
 const sheetNumber = 1;
-const url = `https://spreadsheets.google.com/feeds/cells/${sheetId}/${sheetNumber}/public/values`
+const url = `https://spreadsheets.google.com/feeds/cells/${sheetId}/${sheetNumber}/public/values` // defaults to XML format
 // const url = `https://spreadsheets.google.com/feeds/cells/${sheetId}/${sheetNumber}/public/values?alt=json` // alternative to fetch as json
 
 // fetch the spreadsheet as XML
