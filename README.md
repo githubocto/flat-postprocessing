@@ -58,6 +58,10 @@ You can import and use these helper functions directly, or treat them as a start
 
 TBD API
 
+### TXT
+
+TBD API
+
 ### JSON
 
 TBD API
@@ -82,7 +86,7 @@ TBD API
 
 Run all the tests:
 
-`deno test -A tests/*`
+`deno test -A --unstable tests/*`
 
 Run separate tests
 
