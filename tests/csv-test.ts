@@ -5,23 +5,32 @@ const csvReadPath = './examples/csv/prices.csv'
 const csvWritePath = './examples/csv/names.csv'
 
 Deno.test("reads a csv file", async () => {
-    const csv = await readCSV(csvReadPath) as ArrayLike<unknown>
+    const csv = await readCSV(csvReadPath)
 
-    assertArrayIncludes(csv, [[ "One", "500", "$0.5" ]]);
+    assertArrayIncludes(csv, [{ Name: "One", Amount: "500", Price: "$0.5" }]);
 });
 
 Deno.test("reads a csv file without header", async () => {
     const csv = await readCSV(csvReadPath, { 
         skipFirstRow: true
-    }) as ArrayLike<unknown>
+    })
 
     assertArrayIncludes(csv, [{ Name: "Two", Amount: "13", Price: "$10" }]);
 });
 
 Deno.test("writes a csv file", async () => {
-    const data = `name,age\nRick,70\nSmith,14`
+    const data = [
+        { 
+            age: 70,
+            name: 'Rick'
+        },
+        {
+            age: 14,
+            name: 'Smith'
+        }
+    ]
     await writeCSV(csvWritePath, data)
-    const csv = await readCSV(csvWritePath) as ArrayLike<unknown>
+    const csv = await readCSV(csvWritePath)
 
-    assertArrayIncludes(csv, [[ "Rick", "70" ]]);
+    assertArrayIncludes(csv, [{ age: "70", name: "Rick" }]);
 });
