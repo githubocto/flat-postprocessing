@@ -53,7 +53,6 @@ async function unzipProcess(
         throw new Error(`$Command failed: code ${code}, message: ${str}`);
     } else {
         const str = new TextDecoder().decode(rawOutput);
-        console.log(str);
     }
 
     Deno.close(process.rid) // close the process
