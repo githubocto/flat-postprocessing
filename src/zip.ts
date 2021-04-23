@@ -44,11 +44,19 @@ async function unzipProcess(
 
     const { success, code } = await process.status();
 
+    // Reading the outputs closes their pipes
+    const rawOutput = await process.output();
+    const rawError = await process.stderrOutput();
+
     if (!success) {
-        const raw = await process.stderrOutput();
-        const str = new TextDecoder().decode(raw);
+        const str = new TextDecoder().decode(rawError);
         throw new Error(`$Command failed: code ${code}, message: ${str}`);
+    } else {
+        const str = new TextDecoder().decode(rawOutput);
+        console.log(str);
     }
+
+    Deno.close(process.rid) // close the process
 
     return success
 }
