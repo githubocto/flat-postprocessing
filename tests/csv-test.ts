@@ -1,5 +1,5 @@
 import { assertArrayIncludes } from "https://deno.land/std@0.92.0/testing/asserts.ts"
-import { readCSV, writeCSV } from '../csv.ts'
+import { readCSV, writeCSV } from '../src/csv.ts'
 
 const csvReadPath = './examples/csv/prices.csv'
 const csvWritePath = './examples/csv/names.csv'

@@ -1,4 +1,4 @@
-import { readCSV, writeCSV } from '../../csv.ts'
+import { readCSV, writeCSV } from '../../src/csv.ts' // replace with latest library https://deno.land/x/flat@0.0.x/mod.ts
   
 // Path to a csv file
 const csvPath = './examples/csv/prices.csv';

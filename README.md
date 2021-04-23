@@ -24,9 +24,11 @@ console.log(newfile)
 
 Can be found in the examples folder:
 
-* `deno run --allow-read --allow-write examples/csv/csv-example.ts`
-* `deno run --allow-read --allow-write examples/csv/arquero-example.ts`
-* `deno run -A examples/image/image-example.ts`
+* `deno run -A examples/csv/csv-example.ts`
+* `deno run -A examples/csv/arquero-example.ts`
+* `deno run -A --unstable examples/image/image-example.ts`
+* `deno run -A examples/json/json-example.ts`
+* `deno run -A examples/sheets/sheets-example.ts`
 * `deno run -A examples/xlsx/xlsx-example.ts`
 * `deno run -A --unstable examples/zip/zip-example.ts`
 

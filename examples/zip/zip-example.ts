@@ -1,4 +1,4 @@
-import { unZipFromFile, unZipFromURL } from '../../zip.ts'
+import { unZipFromFile, unZipFromURL } from '../../src/zip.ts' // replace with latest library https://deno.land/x/flat@0.0.x/mod.ts
 
 // zip from a local file
 // (zip file, destination path)
