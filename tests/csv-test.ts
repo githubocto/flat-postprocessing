@@ -8,7 +8,7 @@ Deno.test("reads a csv file", async () => {
     const csv = await readCSV(csvReadPath)
 
     assertArrayIncludes(csv, [{ Name: "One", Amount: "500", Price: "$0.5" }]);
-});
+})
 
 Deno.test("reads a csv file without header", async () => {
     const csv = await readCSV(csvReadPath, { 
@@ -16,7 +16,7 @@ Deno.test("reads a csv file without header", async () => {
     })
 
     assertArrayIncludes(csv, [{ Name: "Two", Amount: "13", Price: "$10" }]);
-});
+})
 
 Deno.test("writes a csv file", async () => {
     const data = [
@@ -33,4 +33,4 @@ Deno.test("writes a csv file", async () => {
     const csv = await readCSV(csvWritePath)
 
     assertArrayIncludes(csv, [{ age: "70", name: "Rick" }]);
-});
+})

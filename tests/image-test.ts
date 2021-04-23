@@ -6,4 +6,4 @@ const url = 'https://api.creativecommons.engineering/v1/thumbs/c8fe5f5b-cc1a-479
 Deno.test("loads an image", async () => {
     const image = await readImageFromURL(url)
     assertEquals(image.bytes.length, 76507)
-});
+})
