@@ -263,8 +263,8 @@ writeImage(imageBytes: Uint8Array, path: string): void
 
 Args:
 
-* **imageBytes:** a byte array
-* **path:** path and name to write the image file
+* **imageBytes**: a byte array
+* **path**: path and name to write the image file
 
 
 Usage: 
@@ -287,9 +287,9 @@ unZipFromFile(
 
 Args:
 
-* **filePath:**: a path to a local zip file
-* **destinationPath:**: a folder path to unzip the files
-* **options:**: option.includeFileName can be true or false
+* **filePath**: a path to a local zip file
+* **destinationPath**: a folder path to unzip the files
+* **options**: option.includeFileName can be true or false
 
 
 Usage: 
@@ -310,9 +310,9 @@ unZipFromURL(
 
 Args:
 
-* **filePath:**: a path to a local zip file
-* **destinationPath:**: a folder path to unzip the files
-* **options:**: option.includeFileName can be true or false
+* **filePath**: a path to a local zip file
+* **destinationPath**: a folder path to unzip the files
+* **options**: option.includeFileName can be true or false
 
 Usage: 
 
