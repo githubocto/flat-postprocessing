@@ -56,31 +56,290 @@ You can import and use these helper functions directly, or treat them as a start
 
 ### CSV
 
-TBD API
+#### readCSV
+
+```ts
+readCSV(path: string, options?: ParseOptions): Promise<Record<string, unknown>[]>
+```
+
+Args:
+
+* **path:** path to a local CSV file
+* **options:** [options](https://deno.land/std@0.92.0/encoding#codeparseoptionscode) for parsing the CSV file
+
+Usage:
+
+`const csv = await readCSV('./path/to/file.csv')`
+
+#### writeCSV
+
+```ts
+writeCSV(path: string, data: Record<string, unknown>[] | string)
+```
+
+Args:
+
+* **path**: path to a local CSV file
+* **data**: string or object array to store
+
+Usage:
+
+```ts
+const data = [ 
+	{ age: 70, name: 'Rick' },
+	{ age: 14, name: 'Smith' }
+]
+await writeCSV('./path/to/file.csv', data)
+```
 
 ### TXT
 
-TBD API
+#### readTXT
+
+```ts
+readTXT(path: string): string
+```
+
+Args:
+
+* **path**: path to a local TXT file
+
+
+Usage: 
+
+```ts
+const text = await readTXT('./path/to/file.txt')
+```
+
+#### writeTXT
+
+```ts
+writeTXT(path: string, text: string): void
+```
+
+Args:
+
+* **path**: path to a local TXT file
+* **text**: text to write to file
+
+
+Usage:
+
+```ts
+await writeTXT('./path/to/file.txt', 'Content for the file')
+```
 
 ### JSON
 
-TBD API
+
+#### readJSON
+
+```ts
+readJSON(path: string): JSON
+```
+
+Args:
+
+* **path**: path to a local JSON file
+
+
+Usage: 
+
+```ts
+const json = await readJSON('./path/to/file.json')
+```
+
+#### readJSONFromURL
+
+```ts
+readJSONFromURL(url: string): JSON
+```
+
+Args:
+
+* **url**: URL to a json file
+
+
+Usage: 
+
+```ts
+const json = await readJSON('www.url.com/file.json')
+```
+
+#### writeJSON
+
+```ts
+writeJSON(path: string, data: any): void
+```
+
+Args:
+
+* **path**: path to a local JSON file
+* **data**: data to store as JSON
+
+Usage: 
+
+```ts
+const data = { age: 40 }
+await writeJSON('./path/to/file.json', data)
+```
 
 ### XLSX
 
-TBD API
+Our library relies on [SheetJS](https://github.com/SheetJS/sheetjs), a library for parsing various spreadsheet formats. In addition to a simple `readXLSX` function you can access the core `xlsx` module by importing it directly.
+
+```ts
+import { xlsx, readXLSX } from 'https://deno.land/x/flat/mod.ts'
+```
+
+`xlsx` provides many more [utility functions](https://github.com/SheetJS/sheetjs). 
+
+
+#### readXLSX
+
+```ts
+readXLSX(path: string): XLSX.WorkBook
+```
+
+Args:
+
+* **path**: path to a local XLSX file
+
+
+Usage: 
+
+```ts
+const workbook = await readXLSX('./path/to/file.xlsx')
+const sheetData = workbook.Sheets[workbook.SheetNames[0]]
+const csvString = await xlsx.utils.sheet_to_csv(sheetData)
+```
+
 
 ### Image
 
-TBD API
+We recommend using a library like [imagescript](https://deno.land/x/imagescript) for more advanced image manipulation. See an example [here](https://github.com/githubocto/flat-postprocessing/blob/main/examples/image/image-example.ts).
+
+#### readImageFromFile
+
+```ts
+readImageFromFile(path: string): Promise<Uint8Array>
+```
+
+Args:
+
+* **path**: path to a local image file
+
+
+Usage: 
+
+```ts
+const bytes = await readImageFromFile('./path/to/image.jpeg')
+```
+
+
+#### readImageFromURL
+
+```ts
+readImageFromURL(url: string): Promise<{ bytes: Uint8Array; name: string; }>
+```
+
+Args:
+
+* **url**: url string to an image
+
+Usage: 
+
+```ts
+const image = await readImageFromURL('www.url.com/image.jpg')
+const bytes = image.bytes
+const name = image.name
+```
+
+#### writeImage
+
+```ts
+writeImage(imageBytes: Uint8Array, path: string): void
+```
+
+Args:
+
+* **imageBytes:** a byte array
+* **path:** path and name to write the image file
+
+
+Usage: 
+
+```ts
+await writeImage(bytes, './path/to/image.jpeg')
+```
 
 ### Zip
 
-TBD API
+#### unZipFromFile
+
+```ts
+unZipFromFile(
+    filePath: string,
+    destinationPath: string | null = "./",
+    options: any = {},
+): Promise<string | false>
+```
+
+Args:
+
+* **filePath:**: a path to a local zip file
+* **destinationPath:**: a folder path to unzip the files
+* **options:**: option.includeFileName can be true or false
+
+
+Usage: 
+
+```ts
+const result = await unZipFromFile('./path/to/folder.zip', './unzip/path')
+const output = result ? 'File unzipped successfully' : 'Error unzipping'
+```
+
+#### unZipFromURL
+```ts
+unZipFromURL(
+    fileURL: string,
+    destinationPath: string | null = "./",
+    options: any = {},
+): Promise<string | false>
+```
+
+Args:
+
+* **filePath:**: a path to a local zip file
+* **destinationPath:**: a folder path to unzip the files
+* **options:**: option.includeFileName can be true or false
+
+Usage: 
+
+```ts
+const result = await unZipFromURL('www.url.com/file.zip', './unzip/path')
+const output = result ? 'File unzipped successfully' : 'Error unzipping'
+```
+
 
 ### Remove
 
-TBD API
+#### removeFile
+
+```ts
+removeFile(path: string): void
+```
+
+Args:
+
+* **path**: path to a local file to delete
+
+
+Usage: 
+
+```ts
+await removeFile('/path/to/file.x')
+```
 
 ## Testing
 
@@ -90,7 +349,7 @@ Run all the tests:
 
 Run separate tests
 
-`deno test -A tests/csv-test.ts`
+`deno test -A --unstable tests/csv-test.ts`
 
 
 ## License
