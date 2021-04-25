@@ -2,7 +2,7 @@ import { mime } from "https://cdn.deno.land/mimetypes/versions/v1.0.0/raw/mod.ts
 import { urlParse } from 'https://cdn.deno.land/url_parse/versions/1.0.0/raw/mod.ts';
 import { basename } from "https://deno.land/std@0.92.0/path/mod.ts";
 
-export async function readImageFromURL(url: string) {
+export async function readImageFromURL(url: string): Promise<{ bytes: Uint8Array; name: string; }> {
     const response = await fetch(url); // fetch an image
     const mimeType = response.headers.get('content-type');
     const imageBytes = new Uint8Array(await response.arrayBuffer());
@@ -19,12 +19,11 @@ export async function readImageFromURL(url: string) {
     return { bytes: imageBytes, name: defaultImageName }
 }
 
-export async function readImageFromFile(path: string) {
+export async function readImageFromFile(path: string): Promise<Uint8Array> {
     const bytes = await Deno.readFile(path) // local file
     return bytes
 }
 
-export async function writeImage(imageBytes: Uint8Array, path: string, name?: string) {
-    const imagePath = `${path}${name}`
-    await Deno.writeFile(imagePath, imageBytes);
+export async function writeImage(imageBytes: Uint8Array, path: string) {
+    await Deno.writeFile(path, imageBytes);
 }
