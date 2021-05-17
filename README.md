@@ -1,6 +1,6 @@
 # Flat Data: Postprocessing Library and Examples
 
-A collection of postprocessing [helper functions](https://deno.land/x/flat/mod.ts) and examples for [Flat Data](https://github.com/githubocto/flat).
+A collection of postprocessing [helper functions](https://deno.land/x/flat/mod.ts) and examples for [Flat Data](https://octo.github.com/projects/flat-data).
 
 These examples and functions are written in [Deno](https://deno.land/), a new language created by the same founders of Node.js and meant to improve on many aspects of Node. 
 
