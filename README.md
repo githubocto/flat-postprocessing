@@ -48,6 +48,10 @@ Deno can run javascript or typescript files, so you can easily convert any of th
 
 `deno run -A examples/csv/csv-example.js`
 
+## Using Python
+
+While our examples use a Deno file to run postprocessing tasks, you can also use Python as specified in this example: [https://github.com/pierrotsmnrd/flat_data_py_example](https://github.com/pierrotsmnrd/flat_data_py_example). Thank you [@pierrotsmnrd](https://github.com/pierrotsmnrd)!
+
 ## Postprocessing Library
 
 The Flat Data postprocessing library can be found at: [https://deno.land/x/flat/mod.ts](https://deno.land/x/flat/mod.ts)
