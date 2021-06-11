@@ -1,6 +1,6 @@
 import xlsxlib from 'https://jspm.dev/xlsx'
-import * as XLSX from 'https://cdn.deno.land/sheetjs/versions/v0.16.8/raw/types/index.d.ts';
-const xlsx = xlsxlib as typeof XLSX;
+import { XLSX } from "./xlsx-types.ts";
+const xlsx = xlsxlib as XLSX;
 
 // read more about the library here: https://github.com/SheetJS/sheetjs
 
