@@ -177,19 +177,26 @@ const json = await readJSON('www.url.com/file.json')
 #### writeJSON
 
 ```ts
-writeJSON(path: string, data: any): void
+writeJSON(path: string, data: any, replacer?: any, space?: string | number): void
+
+
 ```
 
 Args:
 
 * **path**: path to a local JSON file
 * **data**: data to store as JSON
+* **replacer**: [replacer](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/JSON/stringify#parameters) function that transforms the results or an array of strings and numbers that acts as an approved list for selecting the object properties that will be stringified
+* **space**: adds indentation, white space, and line break characters to the to the JSON text to make it easier to read.
+
 
 Usage: 
 
 ```ts
 const data = { age: 40 }
 await writeJSON('./path/to/file.json', data)
+
+await writeJSON('./path/to/file-with-indentation', data, null, 2)
 ```
 
 ### XLSX

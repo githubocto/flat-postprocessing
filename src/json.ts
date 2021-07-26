@@ -3,8 +3,8 @@ export async function readJSON(path: string) {
   return JSON.parse(text)
 }
 
-export async function writeJSON(path: string, data: any) {
-  await Deno.writeTextFile(path, JSON.stringify(data))
+export async function writeJSON(path: string, ...args: Parameters<typeof JSON.stringify>) {
+  await Deno.writeTextFile(path, JSON.stringify(...args))
 }
 
 export async function readJSONFromURL(url: string) {
