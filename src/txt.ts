@@ -3,6 +3,6 @@ export async function readTXT(path: string) {
     return text
 }
   
-export async function writeTXT(path: string, text: string) {
-    await Deno.writeTextFile(path, text)
+export async function writeTXT(path: string, text: string, options?: Deno.WriteFileOptions) {
+    await Deno.writeTextFile(path, text, options)
 }
