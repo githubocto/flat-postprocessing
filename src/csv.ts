@@ -15,9 +15,9 @@ export async function readCSV(path: string, options?: ParseOptions): Promise<Rec
     return content as Record<string, unknown>[]
 }
 
-export async function writeCSV(path: string, data: Record<string, unknown>[] | string) {
+export async function writeCSV(path: string, data: Record<string, unknown>[] | string, options?: Deno.WriteFileOptions) {
     if (typeof data === 'string') {
-        await Deno.writeTextFile(path, data);
+        await Deno.writeTextFile(path, data, options);
         return
     }
 
@@ -25,5 +25,5 @@ export async function writeCSV(path: string, data: Record<string, unknown>[] | s
     // we have to stringify the data with a row header
     const dataString = await stringify(data as DataItem[], headers)
 
-    await Deno.writeTextFile(path, dataString);
+    await Deno.writeTextFile(path, dataString, options);
 }

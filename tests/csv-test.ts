@@ -34,3 +34,27 @@ Deno.test("writes a csv file", async () => {
 
     assertArrayIncludes(csv, [{ age: "70", name: "Rick" }]);
 })
+
+Deno.test("appends to a csv file", async () => {
+    const data = [
+        { 
+            age: 70,
+            name: 'Rick'
+        },
+        {
+            age: 14,
+            name: 'Smith'
+        }
+    ]
+    await writeCSV(csvWritePath, data)
+    const data2 = [
+        {
+            age: 42,
+            name: 'Jodi'
+        }
+    ]
+    await writeCSV(csvWritePath, data2, { append: true })
+    const csv = await readCSV(csvWritePath)
+    assertArrayIncludes(csv, [{ age: "70", name: "Rick" }])
+    assertArrayIncludes(csv, [{ age: "42", name: "Jodi" }])
+})

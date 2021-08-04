@@ -18,3 +18,14 @@ Deno.test("writes a txt file", async () => {
 
     assertStringIncludes(txt, content);
 })
+
+Deno.test("appends to a txt file", async () => {
+    const content = 'Write to a file'
+    const content2 = 'Append to a file'
+    await writeTXT(jsonWritePath, content)
+    await writeTXT(jsonWritePath, content2, { append: true })
+    const txt = await readTXT(jsonWritePath)
+
+    assertStringIncludes(txt, content);
+    assertStringIncludes(txt, content2);
+})

@@ -82,13 +82,14 @@ Usage:
 #### writeCSV
 
 ```ts
-writeCSV(path: string, data: Record<string, unknown>[] | string)
+writeCSV(path: string, data: Record<string, unknown>[] | string, options?: Deno.WriteFileOptions)
 ```
 
 Args:
 
 * **path**: path to a local CSV file
 * **data**: string or object array to store
+* **options**: [options](https://doc.deno.land/builtin/stable#Deno.WriteFileOptions) for writing the CSV file
 
 Usage:
 
@@ -122,14 +123,14 @@ const text = await readTXT('./path/to/file.txt')
 #### writeTXT
 
 ```ts
-writeTXT(path: string, text: string): void
+writeTXT(path: string, text: string, options?: Deno.WriteFileOptions): void
 ```
 
 Args:
 
 * **path**: path to a local TXT file
 * **text**: text to write to file
-
+* **options**: [options](https://doc.deno.land/builtin/stable#Deno.WriteFileOptions) for writing the TXT file
 
 Usage:
 
