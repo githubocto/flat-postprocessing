@@ -1,4 +1,4 @@
-import xlsxlib from 'https://jspm.dev/xlsx'
+import xlsxlib from 'https://jspm.dev/xlsx@0.17.4'
 import { XLSX } from "./xlsx-types.ts";
 const xlsx = xlsxlib as XLSX;
 
