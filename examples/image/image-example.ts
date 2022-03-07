@@ -1,7 +1,7 @@
 import { readImageFromFile, readImageFromURL, writeImage } from '../../src/image.ts' // replace with latest library https://deno.land/x/flat@0.0.x/mod.ts
 import { Image } from 'https://cdn.deno.land/imagescript/versions/1.2.0/raw/mod.ts'; // library for image manipulations
 
-const url1 = 'https://api.creativecommons.engineering/v1/thumbs/c8fe5f5b-cc1a-4794-91c5-7488c60f4914'
+const url1 = 'https://upload.wikimedia.org/wikipedia/commons/thumb/b/b6/Felis_catus-cat_on_snow.jpg/800px-Felis_catus-cat_on_snow.jpg'
 const url2 = 'https://live.staticflickr.com/962/41906373431_72c25d0dfd_b.jpg'
 const url3 = 'https://i.giphy.com/media/5wWf7HapUvpOumiXZRK/giphy.gif'
 
