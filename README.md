@@ -4,7 +4,7 @@ A collection of postprocessing [helper functions](https://deno.land/x/flat/mod.t
 
 These examples and functions are written in [Deno](https://deno.land/), a new language created by the same founders of Node.js and meant to improve on many aspects of Node. 
 
-> Note: If you're noticing your scripts failing recently, try updating to `0.0.14`. [More info here](https://github.com/githubocto/flat/issues/67#issuecomment-1025911772)
+> Note: If you're noticing your scripts failing recently, try updating to `0.0.15`. [More info here](https://github.com/githubocto/flat/issues/67#issuecomment-1025911772)
 
 ## Usage
 
