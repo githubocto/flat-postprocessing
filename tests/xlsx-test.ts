@@ -7,7 +7,7 @@ Deno.test("xlsx library contains keys and functions", () => {
     assertEquals(typeof xlsx.utils.sheet_to_csv, "function")
 })
 
-Deno.test("unzips a folder", async () => {
+Deno.test("reads a XLSX file", async () => {
     const workbook = await readXLSX(xlsxReadPath)
     const sheetData = workbook.Sheets[workbook.SheetNames[0]]
     const csvString = await xlsx.utils.sheet_to_csv(sheetData)

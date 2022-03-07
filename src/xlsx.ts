@@ -1,14 +1,14 @@
-import xlsxlib from 'https://jspm.dev/xlsx@0.17.4'
-import { XLSX } from "./xlsx-types.ts";
-const xlsx = xlsxlib as XLSX;
+// @deno-types="https://deno.land/x/sheetjs/types/index.d.ts"
+import * as xlsx from 'https://deno.land/x/sheetjs@v0.18.3/xlsx.mjs';
+import * as cptable from 'https://deno.land/x/sheetjs@v0.18.3/dist/cpexcel.full.mjs';
+xlsx.set_cptable(cptable);
 
 // read more about the library here: https://github.com/SheetJS/sheetjs
-
-export { xlsx } // export the right types for this lib
+export { xlsx }
 
 // returns a Workbook
 export async function readXLSX(path: string) {
-    const rawText = await Deno.readFile(path)
-    const workbook = await xlsx.read(rawText, { type: 'buffer' })
+    const data = await Deno.readFile(path)
+    const workbook = xlsx.read(data)
     return workbook
 }
