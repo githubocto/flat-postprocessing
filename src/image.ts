@@ -1,5 +1,4 @@
 import { mime } from "https://cdn.deno.land/mimetypes/versions/v1.0.0/raw/mod.ts"
-import { urlParse } from 'https://cdn.deno.land/url_parse/versions/1.0.0/raw/mod.ts';
 import { basename } from "https://deno.land/std@0.92.0/path/mod.ts";
 
 export async function readImageFromURL(url: string): Promise<{ bytes: Uint8Array; name: string; }> {
@@ -8,7 +7,7 @@ export async function readImageFromURL(url: string): Promise<{ bytes: Uint8Array
     const imageBytes = new Uint8Array(await response.arrayBuffer());
 
     const extension = mime.getExtension(mimeType as string);
-    const defaultName = basename(urlParse(url).pathname)
+    const defaultName = basename(new URL(url).pathname)
     let defaultImageName = defaultName
 
     // if image name does NOT include an extension
